@@ -1,0 +1,16 @@
+Zapiekanka, a lengyel melegszendvics (Nosalty);8,7;9,4;5,2;139,0
+Virslis kifli;9,0;14,3;33,6;305,0
+Baconös sajtkrém cipóban (Nosalty);9,0;15,6;14,2;233,0
+Pizzás csiga;7,0;3,7;43,7;242,0
+Diétás cukkinihasáb (Nosalty);11,0;9,9;15,4;196,0
+Sonkás pizza;9,7;8,2;27,0;226,0
+Cukkini tócsni zöldfűszeres vegfölös mártogatóssal;3,0;9,0;11,0;131,0
+Laktató tonhalsaláta (Nosalty);9,2;7,3;3,0;115,0
+Mozzarellás palacsinta;10,14;7,9;3,13;125,23
+Lecsó;3.27;7.69;3.78;97.79
+Vajas pirítós;8.56;12.62;45.82;328.63
+Házi kenyérlángos (Nosalty);8,7;11,6;26,2;245,0
+Zsemlekosár tojással (Mindmegette);5,0;15,6;10,2;203,0
+Triplasajtos toast;16,3;38,2;12,0;456,0
+Tojás Muffin Tonhallal;21,6;5,4;2,7;129,6
+Avokádós tojássaláta;14,7;12,9;53,0;389,0

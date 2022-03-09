@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smart_Eating_Dissertation_Services", "Smart_Eating_Dissertation_Services\Smart_Eating_Dissertation_Services.csproj", "{524DF67D-848B-437C-9F8F-E618AEF45CEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Smart_Eating_Dissertation_Service", "Smart_Eating_Dissertation_Service", "{9DBDC033-A19C-40A7-96BC-7A54A3BAF1D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Smart_Eating_Dissertation_ASP_WEB", "Smart_Eating_Dissertation_ASP_WEB", "{85C235B5-EBEF-4E80-BDFD-1026E27779A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Smart_Eating_Dissertation_WPF", "Smart_Eating_Dissertation_WPF", "{53656BE5-6B3A-4CC7-B9F5-B9907826259D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smart_Eating_Dissertation_ASP", "Smart_Eating_Dissertation_ASP\Smart_Eating_Dissertation_ASP.csproj", "{7E03EB51-A182-42EE-8F5E-73E289F29AE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smart_Eating_Dissertation_WPF", "Smart_Eating_Dissertation_WPF\Smart_Eating_Dissertation_WPF.csproj", "{1C261E3B-2627-4F70-A0F1-DC20B40F372D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{524DF67D-848B-437C-9F8F-E618AEF45CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{524DF67D-848B-437C-9F8F-E618AEF45CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{524DF67D-848B-437C-9F8F-E618AEF45CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{524DF67D-848B-437C-9F8F-E618AEF45CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E03EB51-A182-42EE-8F5E-73E289F29AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E03EB51-A182-42EE-8F5E-73E289F29AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E03EB51-A182-42EE-8F5E-73E289F29AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E03EB51-A182-42EE-8F5E-73E289F29AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C261E3B-2627-4F70-A0F1-DC20B40F372D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C261E3B-2627-4F70-A0F1-DC20B40F372D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C261E3B-2627-4F70-A0F1-DC20B40F372D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C261E3B-2627-4F70-A0F1-DC20B40F372D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{524DF67D-848B-437C-9F8F-E618AEF45CEE} = {9DBDC033-A19C-40A7-96BC-7A54A3BAF1D1}
+		{7E03EB51-A182-42EE-8F5E-73E289F29AE3} = {85C235B5-EBEF-4E80-BDFD-1026E27779A1}
+		{1C261E3B-2627-4F70-A0F1-DC20B40F372D} = {53656BE5-6B3A-4CC7-B9F5-B9907826259D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FAA539DE-235D-4123-A682-833789FE3C8A}
+	EndGlobalSection
+EndGlobal

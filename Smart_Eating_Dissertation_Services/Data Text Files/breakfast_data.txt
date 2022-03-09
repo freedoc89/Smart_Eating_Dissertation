@@ -1,0 +1,30 @@
+Répás zabkeksz;8.0;9.0;39.0;242.0
+Túrós-baconos zablepény;9.0;8.0;11.0;158.0
+belVita JóReggelt! Duo kakaós-mogyorós;7.2;16.0;68.5;455.0
+Cerbona müzliszelet csokoládés;6.0;12.2;65.0;395.0
+Cerbona müzliszelet epres-joghurtos;5.4;13.3;71.2;387.0
+Cerbona müzliszelet étcsokis-málnás;5.4;13.4;69.6;385.0
+Cerbona müzliszelet kakaós-mogyorós;7.0;13.8;65.9;373.0
+Cerbona müzliszelet kávés;3.6;16.1;69.3;431.0
+Cerbona müzliszelet kókuszos;4.3;18.1;67.1;404.0
+Cerbona müzliszelet meggyes;5.2;10.9;66.6;389.0
+Cerbona Müzli étcsokoládés;7.7;13.7;66.1;427.0
+Puffasztott rizspehely;6.3;0.5;89.8;402.0
+Lecsó;3.27;7.69;3.78;97.79
+Kakaós zabpalacsinta;8.0;6.0;25.0;201.0
+Zabkása;5.25;3.5;19.0;129.75
+Vajas pirítós;8.56;12.62;45.82;328.63
+Tejbegríz;3.82;2.47;17.32;109.26
+Bundás kenyér;8.6;13.64;37.1;305.62
+Kókuszos-zabpelyhes bögrés süti;4.0;6.0;20.0;150.0
+Tojás-palacsinta;9.0;9.5;2.6;132.0
+Sonkás spárgás tükörtojás - olasz reggeli;4.2;2.1;2.2;44.0
+Plantain avagy főzőbanán;1.2;10.1;28.8;197.0
+Tojás Muffin Tonhallal;21.6;5.4;2.7;129.6
+Tejbebulgur chia maggal és áfonyával;2.6;2.0;21.0;118.3
+Lédús Banános-Túrós Kuglóf;8.0;2.0;21.0;100.0
+Fitt tonhalas kenő;11.0;6.0;5.0;118.0
+Aldi sajtkrémes rúd;8.9;18.6;33.8;341.0
+Kakaós csiga;7.31;23.65;59.42;492.31
+Tepertős pogácsa;8.1;22.3;46.8;432.0
+Sajtos pogácsa;22.0;22.0;40.0;459.0
