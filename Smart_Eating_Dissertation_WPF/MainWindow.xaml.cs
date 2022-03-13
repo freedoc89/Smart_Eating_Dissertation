@@ -268,11 +268,24 @@ namespace Smart_Eating_Dissertation_WPF
         }
         #endregion
 
+        #region Kalória kalkulátor ablak megnyitása
         private void btn_calorieCalc_Click(object sender, RoutedEventArgs e)
         {
             Calorie_Calculator_Window calorie_Calculator_Window = new Calorie_Calculator_Window();
             calorie_Calculator_Window.ShowDialog();
 
         }
+        #endregion
+
+        #region Kilép gomb
+        private void btn_exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+
+
+
     }
 }

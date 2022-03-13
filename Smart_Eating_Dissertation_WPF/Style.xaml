@@ -1,0 +1,244 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Smart_Eating_Dissertation_WPF" >
+                    
+
+    <!--#region Bezárás gomb style-->
+        <ImageBrush x:Key="close_app_def"
+                    ImageSource="Assets\shut_down_def.png"
+                    Stretch="None" />
+
+        <ImageBrush x:Key="close_app_mo"
+                    ImageSource="Assets\shut_down_mo.png"
+                    Stretch="None" />
+
+        <ImageBrush x:Key="close_app_press"
+                    ImageSource="Assets\shut_down_press.png"
+                    Stretch="None" />
+
+        <Style x:Key="CloseAppStyle"
+               TargetType="{x:Type Button}">
+            <Setter Property="Height"
+                    Value="40" />
+            <Setter Property="Width"
+                    Value="40" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Right" />
+            <Setter Property="VerticalAlignment"
+                    Value="Top" />
+            <Setter Property="Margin"
+                    Value="0,15,15,0" />
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <Border x:Name="border"
+                                BorderThickness="0"
+                                Background="{StaticResource close_app_def}">
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource close_app_mo}" />
+
+                            </Trigger>
+
+                            <Trigger Property="IsPressed"
+                                     Value="True">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource close_app_press}" />
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+        <!--#endregion-->
+
+    <!--Region Kalórai kalkulátor gomb style-->
+    <Style x:Key="FocusVisual3">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <SolidColorBrush x:Key="Button.Static.Background3" Color="#FFDDDDDD"/>
+    <SolidColorBrush x:Key="Button.Static.Border3" Color="#FF707070"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Background1" Color="#FFBEE6FD"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Border1" Color="#FF3C7FB1"/>
+    <SolidColorBrush x:Key="Button.Pressed.Background3" Color="#FFC4E5F6"/>
+    <SolidColorBrush x:Key="Button.Pressed.Border3" Color="#FF2C628B"/>
+    <SolidColorBrush x:Key="Button.Disabled.Background3" Color="#FFF4F4F4"/>
+    <SolidColorBrush x:Key="Button.Disabled.Border3" Color="#FFADB2B5"/>
+    <SolidColorBrush x:Key="Button.Disabled.Foreground3" Color="#FF838383"/>
+    <Style x:Key="btn_calorieCalc" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual3}"/>
+        <Setter Property="Background" Value="{StaticResource Button.Static.Background3}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border3}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="8" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#FFC93C3C"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#ffff"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FF939393"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#FFC94A4A"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#ffff"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FF939393"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background3}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border3}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground3}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    
+    <!--#region Lenyíló menü style-->
+
+    <ImageBrush x:Key="plusMenu_def"
+                 ImageSource="Assets\plus_menu_def.png"
+                Stretch="None" />
+
+    <ImageBrush x:Key="minusMenu_def"
+                 ImageSource="Assets\minus_menu_def.png"
+                Stretch="None" />
+
+    <Style x:Key="btn_plus_menu"
+           TargetType="{x:Type ToggleButton}">
+
+        <Setter Property="Height"
+                Value="30" />
+        <Setter Property="Width"
+                Value="30" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="Margin"
+                Value="15,5,0,0" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                    <Border x:Name="border"
+                            BorderThickness="0"
+                            Background="{StaticResource plusMenu_def}">
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsChecked"
+                                 Value="True">
+
+                            <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="{StaticResource minusMenu_def}" />
+
+                        </Trigger>
+                        
+                        <Trigger Property="IsChecked"
+                                 Value="False">
+
+                            <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="{StaticResource plusMenu_def}" />
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    
+    <!--#region Hozzáadás gomb style-->
+    <ImageBrush x:Key="add_def"
+                 ImageSource="Assets\add_def.png"
+                Stretch="None" />
+    <Style x:Key="btn_add_newSport"
+           TargetType="{x:Type Button}">
+
+        <Setter Property="Height"
+                Value="30" />
+        <Setter Property="Width"
+                Value="30" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="Margin"
+                Value="15,5,0,0" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <Border x:Name="border"
+                            BorderThickness="0"
+                            Background="{StaticResource add_def}">
+
+                    </Border>
+                    
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+
+    <!--#region Törlés gomb style-->
+    
+   
+    <!--#endregion-->
+</ResourceDictionary>

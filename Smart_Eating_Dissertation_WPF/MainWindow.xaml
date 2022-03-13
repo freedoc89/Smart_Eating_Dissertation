@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Smart_Eating_Dissertation_WPF"
         mc:Ignorable="d"
-        Title="Étkezz Okosan App" MaxHeight="850" MaxWidth="945" ScrollViewer.CanContentScroll="True">
+        Title="Étkezz Okosan App" MaxHeight="850" MaxWidth="945" ScrollViewer.CanContentScroll="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowState="Maximized"
+        >
+
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -346,10 +350,18 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <!--#endregion-->
-
             <Image Grid.Column="1" Grid.ColumnSpan="14" Source="c:\Users\Freedoc\source\repos\Smart_Eating_Dissertation\Smart_Eating_Dissertation_Services\Pics\bg_szalagkep.jpg" VerticalAlignment="Center" StretchDirection="DownOnly" Height="200" HorizontalAlignment="Stretch"/>
+            
+            <!--#region Exit gomb-->
+            <Button x:Name="btn_exit" Cursor="Hand" Grid.Column="14" Grid.Row="0" Style="{StaticResource CloseAppStyle}" Height="50" Width="50" VerticalAlignment="Top" Margin="7,16,0,0" Click="btn_exit_Click" >
+                <Button.Background>
+                    <ImageBrush Stretch="None"/>
+                </Button.Background>
+            </Button>
+            <!--#endregion-->
+          
 
-            <Button x:Name="btn_calorieCalc" Style="{DynamicResource btn_calorieCalc}" Grid.Column="12" Grid.Row="0" Height="40px" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Margin="0,0,15,25" Background="#FFC91B1B" Foreground="White" FontFamily="Britannic Bold" FontSize="14" BorderBrush="#FF939393" Click="btn_calorieCalc_Click">Kalória Kalkulátor</Button>
+            <Button x:Name="btn_calorieCalc" Style="{DynamicResource btn_calorieCalc}" Grid.Column="12" Grid.Row="0" Height="40px" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Margin="0,0,15,25" Background="#FFC91B1B" Foreground="White" FontFamily="Britannic Bold" FontSize="14" BorderBrush="#FF939393" Click="btn_calorieCalc_Click" Cursor="Hand">Kalória Kalkulátor</Button>
 
             <!--#region Napok blokk-->
             <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="14" Background="#B2B37A4C" Orientation="Horizontal" Height="43"/>
@@ -363,22 +375,22 @@
             <!--#endregion-->
 
             <!--#region Véletlen étel generátor gombok-->
-            <Button x:Name="btn_newBreakfast" Style="{DynamicResource BorderRadius}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Width="160" Height="50" Margin="10,15,0,15" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FF444040" Background="#FFFDE06E" BorderBrush="#FFABABAB" Click="btn_newBreakfast_Click">Új Reggeli
+            <Button x:Name="btn_newBreakfast" Style="{DynamicResource BorderRadius}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Width="160" Height="50" Margin="10,15,0,15" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FF444040" Background="#FFFDE06E" BorderBrush="#FFABABAB" Click="btn_newBreakfast_Click" Cursor="Hand">Új Reggeli
                 <Button.BitmapEffect>
                     <DropShadowBitmapEffect Color="Gray"  Direction="320" Softness="2" ShadowDepth="1" Opacity="0.2" />
                 </Button.BitmapEffect>
             </Button>
-            <Button x:Name="btn_newLunch_Soup" Style="{DynamicResource btn_newLunch_Soup}" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="4" Width="160" Height="50" Margin="20,15,0,15" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FF444040" Background="#FFC4F571" BorderBrush="#FFABABAB" Click="btn_newLunch_Soup_Click">Új Leves
+            <Button x:Name="btn_newLunch_Soup" Style="{DynamicResource btn_newLunch_Soup}" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="4" Width="160" Height="50" Margin="20,15,0,15" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FF444040" Background="#FFC4F571" BorderBrush="#FFABABAB" Click="btn_newLunch_Soup_Click" Cursor="Hand">Új Leves
                 <Button.BitmapEffect>
                     <DropShadowBitmapEffect Color="Gray"  Direction="320" Softness="2" ShadowDepth="1" Opacity="0.2" />
                 </Button.BitmapEffect>
             </Button>
-            <Button x:Name="btn_newLunch_Main" Style="{DynamicResource Ebed}" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="4" Width="160" Height="50" Margin="0,15,20,15" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FF444040" Background="#f57771" BorderBrush="#FFABABAB" Click="btn_newLunch_Main_Click">Új Főétel
+            <Button x:Name="btn_newLunch_Main" Style="{DynamicResource Ebed}" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="4" Width="160" Height="50" Margin="0,15,20,15" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FF444040" Background="#f57771" BorderBrush="#FFABABAB" Click="btn_newLunch_Main_Click" Cursor="Hand">Új Főétel
                 <Button.BitmapEffect>
                     <DropShadowBitmapEffect Color="Gray"  Direction="320" Softness="2" ShadowDepth="1" Opacity="0.2" />
                 </Button.BitmapEffect>
             </Button>
-            <Button x:Name="btn_newDinner" Style="{DynamicResource Vacsora}" Grid.Column="12" Grid.Row="2" Grid.ColumnSpan="3" Width="160" Height="50" Margin="0,15,10,15" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FF444040" Background="#bf9c84" BorderBrush="#FFABABAB" HorizontalAlignment="Stretch" Click="btn_newDinner_Click">Új Vacsora
+            <Button x:Name="btn_newDinner" Style="{DynamicResource Vacsora}" Grid.Column="12" Grid.Row="2" Grid.ColumnSpan="3" Width="160" Height="50" Margin="0,15,10,15" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FF444040" Background="#bf9c84" BorderBrush="#FFABABAB" HorizontalAlignment="Stretch" Click="btn_newDinner_Click" Cursor="Hand">Új Vacsora
                 <Button.BitmapEffect>
                     <DropShadowBitmapEffect Color="Gray"  Direction="320" Softness="2" ShadowDepth="1" Opacity="0.2" />
                 </Button.BitmapEffect>
@@ -386,7 +398,7 @@
             <!--#endregion-->
 
             <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="16" Height="1" Background="Black" Margin="0,0,0,-6" VerticalAlignment="Bottom"></StackPanel>
-            <Label Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="15" Foreground="#FFEB0F0F" FontSize="16" Margin="0,5,0,0" HorizontalAlignment="Center">Figyelem! Néhány étel nem éri el a 100g-os súlyt ezért lehet hogy megtévesztő az érték!</Label>
+            <Label Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="15" Foreground="#FFEB0F0F" FontSize="16" Margin="0,5,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI Black">Figyelem! Néhány étel nem éri el a 100g-os súlyt ezért lehet hogy megtévesztő az érték!</Label>
             <StackPanel Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="16" Height="2" Background="Black" Margin="0,10,0,10"></StackPanel>
             <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" FontSize="22" FontFamily="Segoe UI Black" Margin="15,35,0,0" HorizontalAlignment="Left">Ételek Random:</Label>
             <Label Grid.Column="10" Grid.Row="3" Grid.ColumnSpan="6" FontSize="16" FontFamily="Segoe UI Black" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,30,15,0">Tápértéktartalom: /100g</Label>

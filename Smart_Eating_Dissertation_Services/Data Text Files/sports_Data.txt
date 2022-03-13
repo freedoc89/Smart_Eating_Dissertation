@@ -1,0 +1,180 @@
+Sport neve;kcal/kg/perc
+Aerobik, alacsony intenzitással;0,0833
+Aerobik, nagy intenzitással;0,1167
+Aerobik, step aerobik;0,1419
+Aerobik, általános;0,1085
+Amerikai futball vagy baseball, passzolgatás;0,0419
+Amerikai futball, meccs;0,1500
+Asztalitenisz;0,0667
+Atlétika;0,1000
+Balett, twist, jazz;0,0752
+Biliárd;0,0419
+Birkózás;0,1000
+Boksz a ringben;0,2002
+Boksz, kesztyűzés;0,1500
+Boksz, zsákolás;0,1000
+Bowling;0,0500
+Búvárkodás;0,1167
+Cipelés a lépcsőn;0,1000
+Cipelés a lépcsőn (nehéz);0,1333
+Csónakázás, motorcsónakozás;0,0419
+Curling;0,0667
+Darts;0,0419
+Edzői munka (például labdarúgás, kosárlabda);0,0667
+Ejtőernyőzés;0,0500
+Ellipszis tréner, alacsony intenzitás;0,0752
+Ellipszis tréner, közepes intenzitás;0,0876
+Ellipszis tréner, magas intenzitás;0,1050
+Enyhe nyújtás, stretching;0,0419
+Evezőgép, könnyen;0,0585
+Evezőgép, mérsékelten;0,1167
+Evezősgép, erőteljesen;0,1419
+Evezősgép, nagyon erőteljesen;0,2002
+Fallabda (squash);0,2002
+Footbag;0,0667
+Frisbee játszani, általános;0,0500
+Frisbee, Ultimate frisbee;0,1333
+Futás, 10 km/h;0,1669
+Futás, 11 km/h;0,1919
+Futás, 12 km/h;0,2252
+Futás, 14 km/h;0,2502
+Futás, 16 km/h;0,2669
+Futás, 17 km/h;0,3002
+Futás, 8 km/h;0,1333
+Futás, lépcsőn felfelé;0,2502
+Futás, általános;0,1333
+Gimnasztika;0,0667
+Golf, elektromos kocsi használatával;0,0585
+Golf, gyakorlópálya;0,0500
+Golf, gyaloglással és cipeléssel;0,0752
+Golf, minigolf;0,0500
+Golf, általános;0,0752
+Gyeplabda;0,1333
+Gyermekjátékok, ugróiskola;0,0833
+Gyors korcsolyázás, jégkorcsolyázás;0,2502
+Gördeszkázás;0,0833
+Görkorcsolyázás;0,1167
+Harcművészet, judo, karate, jujitsu;0,1669
+Harcművészet, taekwondo;0,1669
+Harcművészetek, kick boksz;0,1669
+Hegyi sífutás, lassú;0,1167
+Hegymászás, 20 kg alatti súllyal;0,1167
+Hegymászás, 20-45 kg plusz súllyal;0,1252
+Hegymászás, 46-90 kg plusz súllyal;0,1333
+Hátizsákos túrázás;0,1167
+Hótalpas séta;0,1333
+Játék, játék az állatokkal;0,0419
+Jégkorcsolya, < 15 km/h;0,0919
+Jégkorcsolya, gyorsan;0,1500
+Jégkorcsolya, átlagos sebesség;0,1167
+Jégkorong;0,1333
+Kajak;0,0833
+Kenu, kirándulás;0,0667
+Kenu, könnyű;0,0500
+Kenu, közepes;0,1167
+Kenu, nehéz;0,2002
+Kerti munka;0,0752
+Kertészet, általános;0,0667
+Kertészkedés (intenzív);0,0667
+Kerékpározás, > 30 km/h, versenyzés;0,2669
+Kerékpározás, < 15 km/h, szabadidős kerékpározás;0,0667
+Kerékpározás, 15-20 km/h, könnyű;0,1000
+Kerékpározás, 20-22 km/h, mérsékelt;0,1333
+Kerékpározás, 22-25 km/h, gyors;0,1669
+Kerékpározás, 25-30 km/h, verseny;0,2002
+Kerékpározás, mountain bike, BMX;0,1419
+Kickball;0,1167
+Kisgyermekek szállítása karban;0,0500
+Kosárlabda játék;0,1000
+Kosárlabda, kerekesszékből;0,1085
+Kosárlabda, nem intezív;0,0752
+Kosárlabda, verseny;0,1333
+Krav maga edzés;0,1669
+Kutyafürdetés;0,0585
+Kutyasétáltatás;0,0500
+Kézilabda;0,2002
+Kézilabda, csapat;0,1333
+Köredzés, rövid szünetekkel;0,1333
+Labdarúgás (foci);0,1167
+Labdarúgás, mérkőzés;0,1669
+Lacrosse;0,1333
+Lovaglás, nyerges;0,0585
+Lépcsőzőgép;0,1500
+Lóverseny, galopp;0,1333
+Lóápolás, mérsékelt;0,1000
+Motorosszán vezetése;0,0585
+Nyújtás, hatha jóga;0,0667
+Pázsit vagy kert öntözése;0,0252
+Póló;0,1333
+Rögbi;0,1669
+Röplabda;0,1167
+Röplabda;0,1333
+Röplabda;0,0500
+Röplabda, strand;0,1333
+Saját testsúlyos edzés, könnyű;0,0585
+Saját testsúlyos edzés, nehéz;0,1333
+Softball vagy baseball;0,0833
+Szabadtüdős merülés;0,0833
+Sziklamászás, egyedül álló szikla;0,1835
+Sziklamászás, hegymászás;0,1333
+Szinkronúszás;0,1333
+Szobakerékpározás, gyorsan;0,1752
+Szobakerékpározás, lassan;0,0919
+Szobakerékpározás, mérsékelt;0,1167
+Szobakerékpározás, nagyon erőteljes;0,2085
+Szobakerékpározás, nagyon könnyű;0,0500
+Szánkózás;0,1167
+Szörfözés;0,0500
+Szörfözés, vitorlázás;0,0500
+Séta / futás, játék a kutyával;0,0667
+Séta 3 km/h, lassú;0,0419
+Séta 4 km/h;0,0500
+Séta 6 km/h, gyors ütemben;0,0633
+Séta, 3 km/h alatt, nagyon lassú;0,0333
+Séta: 5 km/h, mérsékelt;0,0552
+Séta: 6 km/h, felfelé;0,1000
+Séta: 7 km/h, nagyon gyors;0,0833
+Síelés, mérsékelt;0,1000
+Síelés, verseny;0,1333
+Síelés, vízisí;0,1000
+Sífutás, felfelé;0,2754
+Sífutás, gyors;0,1500
+Sífutás, mérsékelt;0,1333
+Sífutás, versenyzés;0,2335
+Sígép;0,1167
+Súlyemelés, könnyű edzés;0,0500
+Súlyemelés, testépítés, erőteljes edzés;0,1000
+Tai-chi;0,0667
+Takarítás, portölés;0,0419
+Tenisz;0,1167
+Tenisz, egyéni;0,1333
+Tenisz, páros;0,1000
+Terepfutás;0,1500
+Tollaslabda;0,0752
+Trambulin;0,0585
+Tájfutás;0,1500
+Társastánc, gyors;0,0919
+Társastánc, lassú;0,0500
+Túrázás, sífutópálya;0,1000
+Ugrókötelezés, gyorsan;0,2002
+Ugrókötelezés, lassan;0,1333
+Ugrókötelezés, mérsékelt;0,1669
+Vadvizi rafting, kajakozás, kenuzás;0,0833
+Vitorlázás, verseny;0,0833
+Vitorlázás, óceán vitorlázás;0,0500
+Vizibiciklizés;0,0667
+Váltófutás;0,1669
+Vívás;0,1000
+Vízben futás;0,1333
+Vízi aerobik;0,0667
+Vízi röplabda;0,0500
+Vízilabda;0,1669
+Zsonglőrködés;0,0667
+Általános házimunka;0,0585
+Általános takarítás;0,0585
+Íjászat;0,0585
+Úszás, gyorsúszás;0,1669
+Úszás, hátúszás;0,1167
+Úszás, lassú;0,1167
+Úszás, mellúszás;0,1669
+Úszás, pillangó;0,1835

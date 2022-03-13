@@ -8,6 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\add_def.png" />
+    <None Remove="Assets\bg_szalagkep.jpg" />
+    <None Remove="Assets\calcWindow_bg.jpg" />
+    <None Remove="Assets\minus_menu_def.png" />
+    <None Remove="Assets\minus_menu_mo.png" />
+    <None Remove="Assets\plus_menu_def.png" />
+    <None Remove="Assets\plus_menu_mo.png" />
+    <None Remove="Assets\remove_sport_def.png" />
+    <None Remove="Assets\shut_down_def.png" />
+    <None Remove="Assets\shut_down_mo.png" />
+    <None Remove="Assets\shut_down_press.png" />
+    <None Remove="power-on.png" />
+    <None Remove="remove_sport_def.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -22,6 +38,35 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Smart_Eating_Dissertation_Services\Smart_Eating_Dissertation_Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\add_def.png" />
+    <Resource Include="Assets\bg_szalagkep.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\calcWindow_bg.jpg" />
+    <Resource Include="Assets\minus_menu_def.png" />
+    <Resource Include="Assets\plus_menu_def.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\plus_menu_mo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\remove_sport_def.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\shut_down_def.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\shut_down_mo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\shut_down_press.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="power-on.png" />
+    <Resource Include="remove_sport_def.png" />
   </ItemGroup>
 
 </Project>

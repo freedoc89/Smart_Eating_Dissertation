@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Smart_Eating_Dissertation_Services.Models.Meals;
 using Smart_Eating_Dissertation_Services.Models.WeekDays;
+using Smart_Eating_Dissertation_Services.Models.Sports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Smart_Eating_Dissertation_Services.Data
         public DbSet<Lunch_Main_Course_EatingData> lunch_Main_Course_EatingDatas_DB { get; set; }
         public DbSet<Dinner_EatingData> dinner_EatingDatas_DB { get; set; }
         public DbSet<WeekDays> WeekDays_EatingDatas_DB { get; set; }
+        public DbSet<SportData> SportsData_DB { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
