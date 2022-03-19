@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         WindowStyle="None"
         MaxWidth="450"
-        MaxHeight="830"
-        Title="Kalória kalkulátor" Background="#ddff8f" d:DesignHeight="1100" WindowStartupLocation="CenterScreen" WindowState="Maximized" ScrollViewer.CanContentScroll="True">
+        MaxHeight="820"
+        Title="Kalória kalkulátor" Background="#ddff8f" d:DesignHeight="820" WindowStartupLocation="CenterScreen" WindowState="Maximized" ScrollViewer.CanContentScroll="True">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid>
@@ -81,32 +81,31 @@
             <ComboBox x:Name="cb_gender" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" HorizontalAlignment="Center" Width="75" FontFamily="Dubai Medium" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand">
                 <ComboBoxItem IsSelected="True" VerticalAlignment="Center" Content="Férfi" Cursor="Hand"/>
                 <ComboBoxItem VerticalAlignment="Center" Content="Nő" Cursor="Hand"/>
-                <ComboBoxItem VerticalAlignment="Center" Content="Nő (állapotos)" Cursor="Hand"/>
             </ComboBox>
             <StackPanel Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Bottom" Background="#FFB1AAAA"/>
             <!--#endregion-->
 
             <!--#region Kor blokk-->
             <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="14" FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-3" HorizontalAlignment="Center" Content="Kor:" FontSize="14" />
-            <TextBox x:Name="tb_age" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" TextChanged="tb_age_TextChanged"/>
+            <TextBox x:Name="tb_age" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" LostFocus="tb_age_LostFocus"/>
             <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Bottom" Background="#FFB1AAAA"/>
             <!--#endregion-->
 
             <!--#region Magasság blokk-->
             <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="14" FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-4" HorizontalAlignment="Center" Content="Magasság (cm):" FontSize="14" />
-            <TextBox x:Name="tb_height" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" TextChanged="tb_height_TextChanged"/>
+            <TextBox x:Name="tb_height" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" LostFocus="tb_height_LostFocus"/>
             <StackPanel Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Bottom" Background="#FFB1AAAA"/>
             <!--#endregion-->
 
             <!--#region Tömeg blokk-->
             <Label Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="14" FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-3" HorizontalAlignment="Center" Content="Tömeg (kg):" FontSize="14" />
-            <TextBox x:Name="tb_weight" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" TextChanged="tb_weight_TextChanged"/>
+            <TextBox x:Name="tb_weight" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" LostFocus="tb_weight_LostFocus"/>
             <StackPanel Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Bottom" Background="#FFB1AAAA"/>
             <!--#endregion-->
 
             <!--#region Testzsír blokk-->
             <Label Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="14" FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-3" HorizontalAlignment="Center" Content="Testzsír (%, opcionális):" FontSize="14" />
-            <TextBox x:Name="tb_fat" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" TextChanged="tb_fat_TextChanged"/>
+            <TextBox x:Name="tb_fat" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" LostFocus="tb_fat_LostFocus"/>
 
             <!--Testzsír magyarázat-->
             <TextBlock Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="14" FontFamily="Bahnschrift SemiLight Condensed" VerticalAlignment="Center" Margin="0,-23,0,5" TextWrapping="Wrap" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" ><Run Text="A program meghatározza a megadott adataid alapján, ha üresen hagyod."/></TextBlock>
@@ -125,7 +124,7 @@
             <StackPanel Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Top" Background="#FFB1AAAA" Margin="0,30,0,0"/>
             <!--#endregion-->
 
-            <!--#region Menü-->
+            <!--#region Lenyíló Menü-->
 
             <StackPanel Grid.Column="0" Grid.Row="15" Grid.ColumnSpan="14" Grid.RowSpan="4" Margin="0,0,0,0" HorizontalAlignment="Stretch" Visibility="Visible">
                 <Grid Width="320">
@@ -136,17 +135,19 @@
                     </ToggleButton>
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Margin="35,0,0,0" Height="15" FontFamily="Britannic Bold"><Run Text="További beállítások"/></TextBlock>
                 </Grid>
-                <StackPanel x:Name="menu_stackP" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Visibility="Collapsed">
+                
+                <!--#region Napi teendők rész-->
+                <StackPanel x:Name="menu_stackP" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" Width="360" Visibility="Collapsed">
 
                     <Label  FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-3" HorizontalAlignment="Left" Content="Napi teendők:" FontSize="16" />
-                    <StackPanel Height="2px" VerticalAlignment="Top" Background="#FFB1AAAA" Margin="0,0,0,0" HorizontalAlignment="Stretch" Width="290"/>
+                    <StackPanel Height="2px" VerticalAlignment="Top" Background="#FFB1AAAA" Margin="0,0,0,0" HorizontalAlignment="Stretch" Width="355"/>
 
                     <Label  FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Content="Alvás(óra/nap):" FontSize="14" />
                     <TextBox x:Name="tb_sleep" Background="White" Margin="10,0,0,5" Width="50" HorizontalAlignment="Left" SelectionBrush="{x:Null}"/>
 
                     <Label  FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="5,5,0,0" HorizontalAlignment="Left" Content="Munka(óra/nap):" FontSize="14" />
 
-                    <Grid HorizontalAlignment="Stretch" Width="300">
+                    <Grid HorizontalAlignment="Left" Width="360">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -163,12 +164,19 @@
                             <ComboBoxItem VerticalAlignment="Center" Content="Nehéz fizikai munka" Cursor="Hand"/>
                         </ComboBox>
                     </Grid>
+                    <!--#endregion-->
+                    
+                <!--#region Sport hozzáadása rész-->
                     <Label  FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-3" HorizontalAlignment="Left" Content="Sport:" FontSize="16" />
                     <Label  FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="50,-23,0,-3" HorizontalAlignment="Left" Content="(Maximum 5db adható meg!)" FontSize="12" Foreground="#FFF40404" />
-                    <StackPanel Height="2px" VerticalAlignment="Top" Background="#FFB1AAAA" Margin="0,0,0,0" HorizontalAlignment="Stretch" Width="290"/>
-
-                    <Grid HorizontalAlignment="Stretch" Width="300" Margin="10,0,0,0" VerticalAlignment="Stretch">
+                    <StackPanel Height="2px" VerticalAlignment="Top" Background="#FFB1AAAA" Margin="0,0,0,0" HorizontalAlignment="Stretch" Width="355"/>
+                
+                    <!--#region Sorok oszlopok-->
+                    <Grid HorizontalAlignment="Right" Width="350" Margin="10,0,0,0" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -181,25 +189,110 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" VerticalAlignment="Bottom" Margin="-5,5,0,-5" HorizontalAlignment="Left" FontFamily="Bahnschrift Light Condensed" FontSize="14">Sport(perc/nap)</Label>
-                        <TextBox x:Name="tb_sport_minute" Grid.Column="0" Grid.Row="1" Background="White" Margin="0,0,0,0" HorizontalAlignment="Left" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" VerticalAlignment="Center" Width="50"/>
-                        <ComboBox x:Name="cb_sport_type" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Background="White" Margin="0,0,0,0" HorizontalAlignment="Left" FontFamily="Dubai Medium" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" MaxWidth="200" Width="180">
+                <!--#endregion-->
+                        
+                        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" VerticalAlignment="Bottom" Margin="-5,5,0,-5" HorizontalAlignment="Left" FontFamily="Bahnschrift Light Condensed" FontSize="14">Sport(perc/nap)</Label>
+                        <TextBox x:Name="tb_sport_minute" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Background="White" Margin="0,0,15,0" HorizontalAlignment="Left" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" VerticalAlignment="Center" Width="50" Height="20"/>
+                        <ComboBox x:Name="cb_sport_type" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="7" Background="White" Margin="0,0,0,0" HorizontalAlignment="Left" FontFamily="Dubai Medium" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand" Width="210">
                         </ComboBox>
-                        <Button x:Name="btn_add_newSport" Grid.Column="6" Grid.Row="1" Style="{StaticResource btn_add_newSport}" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Click="btn_add_newSport_Click" Cursor="Hand"></Button>
-                        <StackPanel x:Name="add_sportStack" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Visibility="Visible" Orientation="Vertical">
-                            <Label x:Name="lb1_sport" Width="180"></Label>
-                            <Label x:Name="lb2_sport" Width="180"></Label>
-                            <Label x:Name="lb3_sport" Width="180"></Label>
-                            <Label x:Name="lb4_sport" Width="180"></Label>
-                            <Label x:Name="lb5_sport" Width="180"></Label>
+                        <Button x:Name="btn_add_newSport" Grid.Column="9" Grid.Row="1" Style="{StaticResource btn_add_newSport}" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Click="btn_add_newSport_Click" Cursor="Hand"></Button>
+                        
+                    <!--#region Hozzáadott Sportok rész 5db-->
+                        <StackPanel x:Name="add_sportStack" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="10" Visibility="Collapsed" Orientation="Vertical" HorizontalAlignment="Stretch" Width="350">
+
+                            <StackPanel x:Name="added_sport1" Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"></ColumnDefinition>
+                                        <ColumnDefinition Width="220"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Tag="1" x:Name="lb1_sport_minute" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label x:Name="lb1_sport" Grid.Column="1" Grid.Row="0"></Label>
+                                    <Button Tag="1" x:Name="btn_remove_thisSport1" Grid.Column="2" Grid.Row="0" Style="{StaticResource btn_remove_thisSport}" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Cursor="Hand" Visibility="Visible" Click="btn_remove_thisSport_Click"></Button>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel x:Name="added_sport2" Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"></ColumnDefinition>
+                                        <ColumnDefinition Width="220"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                       <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Tag="2" x:Name="lb2_sport_minute" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Label x:Name="lb2_sport" Grid.Column="1" Grid.Row="1"></Label>
+                                    <Button Tag="2" x:Name="btn_remove_thisSport2" Grid.Column="2" Grid.Row="1" Style="{StaticResource btn_remove_thisSport}" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Cursor="Hand" Visibility="Visible" Click="btn_remove_thisSport_Click"></Button>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel x:Name="added_sport3" Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"></ColumnDefinition>
+                                        <ColumnDefinition Width="220"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Tag="3" x:Name="lb3_sport_minute" Grid.Column="0" Grid.Row="2"></Label>
+                                    <Label x:Name="lb3_sport" Grid.Column="1" Grid.Row="2"></Label>
+                                    <Button Tag="3" x:Name="btn_remove_thisSport3" Grid.Column="2" Grid.Row="2" Style="{StaticResource btn_remove_thisSport}" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Cursor="Hand" Visibility="Visible" Click="btn_remove_thisSport_Click"></Button>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel x:Name="added_sport4" Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"></ColumnDefinition>
+                                        <ColumnDefinition Width="220"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Tag="4" x:Name="lb4_sport_minute" Grid.Column="0" Grid.Row="3"></Label>
+                                    <Label x:Name="lb4_sport" Grid.Column="1" Grid.Row="3"></Label>
+                                    <Button Tag="4" x:Name="btn_remove_thisSport4" Grid.Column="2" Grid.Row="3" Style="{StaticResource btn_remove_thisSport}" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Cursor="Hand" Visibility="Visible" Click="btn_remove_thisSport_Click"></Button>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel x:Name="added_sport5" Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"></ColumnDefinition>
+                                        <ColumnDefinition Width="220"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Tag="5" x:Name="lb5_sport_minute" Grid.Column="0" Grid.Row="3"></Label>
+                                    <Label x:Name="lb5_sport" Grid.Column="1" Grid.Row="4"></Label>
+                                    <Button Tag="5" x:Name="btn_remove_thisSport5" Grid.Column="2" Grid.Row="4" Style="{StaticResource btn_remove_thisSport}" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Cursor="Hand" Visibility="Visible" Click="btn_remove_thisSport_Click"></Button>
+                                </Grid>
+                            </StackPanel>
                         </StackPanel>
+                    <!--#endregion-->
                     </Grid>
+                    <!--#endregion-->
+                    
                 </StackPanel>
             </StackPanel>
 
             <!--#endregion-->
-            <Button x:Name="btn_Calc" Style="{DynamicResource btn_calorieCalc}" Grid.Column="0" Grid.Row="21" Grid.ColumnSpan="14" Height="40px" VerticalAlignment="Center" Background="#FFC91B1B" Foreground="White" FontFamily="Britannic Bold" FontSize="14" BorderBrush="#FF939393" HorizontalAlignment="Center" Width="150" Margin="0,15,0,30" Content="Kalória Kalkulátor" Cursor="Hand" Click="btn_Calc_Click"/>
+            
+            <Button x:Name="btn_Calc" Style="{DynamicResource btn_calorieCalc}" Grid.Column="0" Grid.Row="21" Grid.ColumnSpan="14" Height="40px" VerticalAlignment="Center" Background="#FFC91B1B" Foreground="White" FontFamily="Britannic Bold" FontSize="14" BorderBrush="#FF939393" HorizontalAlignment="Center" Width="150" Margin="0,15,0,30" Content="Kalória Kalkulátor" Cursor="Hand" Click="btn_Calc_Click" IsEnabled="False"/>
 
 
         </Grid>

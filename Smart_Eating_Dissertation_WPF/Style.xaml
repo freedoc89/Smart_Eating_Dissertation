@@ -238,7 +238,41 @@
 
 
     <!--#region Törlés gomb style-->
-    
-   
+    <ImageBrush x:Key="remove_def"
+                 ImageSource="Assets\remove_sport_def.png"
+                Stretch="None" />
+    <Style x:Key="btn_remove_thisSport"
+           TargetType="{x:Type Button}">
+
+        <Setter Property="Height"
+                Value="30" />
+        <Setter Property="Width"
+                Value="30" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="Margin"
+                Value="15,5,0,0" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <Border x:Name="border"
+                            BorderThickness="0"
+                            Background="{StaticResource remove_def}">
+
+                    </Border>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+    </Style>
+
     <!--#endregion-->
 </ResourceDictionary>
