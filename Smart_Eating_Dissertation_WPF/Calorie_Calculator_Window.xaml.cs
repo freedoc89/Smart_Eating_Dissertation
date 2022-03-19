@@ -26,8 +26,9 @@ namespace Smart_Eating_Dissertation_WPF
 
         public int BMR_Value = 0;
         public int sum_AllValues = 0;
-        public int [] mealsPerValues = new int [3];
+        public int[] mealsPerValues = new int[3];
 
+        private int BMR_ValueSet = 0;
         private int age = 0;
         private int height = 0;
         private int weight = 0;
@@ -36,7 +37,7 @@ namespace Smart_Eating_Dissertation_WPF
         private double SportMinute = 0;
         private double sportKcal = 0;
         private string[] sport_Minutes = new string[5];
-        
+
 
         #endregion
 
@@ -128,24 +129,13 @@ namespace Smart_Eating_Dissertation_WPF
             }
         }
 
-        //Test zsír textbox vizsgálata (opcionális)
-        private void tb_fat_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (Int32.TryParse(tb_weight.Text, out int x) && tb_weight.Text.Length <= 3 && Convert.ToInt32(tb_weight.Text) < 250)
-            {
 
-            }
-            else
-            {
-                tb_weight.Text = "";
-            }
-        }
         private void ButtonEnable()
         {
             if (tb_age.Text.Length > 0 && tb_height.Text.Length > 0 && tb_weight.Text.Length > 0)
             {
                 btn_Calc.IsEnabled = true;
-              
+
             }
             else
             {
@@ -318,20 +308,20 @@ namespace Smart_Eating_Dissertation_WPF
 
             if (cb_gender.SelectionBoxItem.ToString() == "Férfi")
             {
-                BMR_Value = Convert.ToInt32(((10 * weight) + (6.25 * height)) - (5 * (age + 5)));
+                BMR_Value = Convert.ToInt32(((10 * weight) + (6.25 * height) - 5 * age) + 5);
 
             }
             if (cb_gender.SelectionBoxItem.ToString() == "Nő")
             {
-                BMR_Value = Convert.ToInt32(((10 * Convert.ToInt32(tb_weight.Text)) + (6.25 * Convert.ToInt64(tb_height.Text))) - (5 * (Convert.ToInt32(tb_age.Text) + 5)));
+                BMR_Value = Convert.ToInt32(((10 * weight) + (6.25 * height) - 5 * age) - 161);
 
             }
             #endregion
 
             #region Kalória szükséglet kalkulátor
-
+            BMR_ValueSet = BMR_Value;
             double hour = 24;
-            double bmrPerHour = BMR_Value / hour;
+            double bmrPerHour = BMR_ValueSet / hour;
 
             sleep = bmrPerHour * 0.95;
 
@@ -347,37 +337,58 @@ namespace Smart_Eating_Dissertation_WPF
                 hour -= Convert.ToInt32(tb_sleep.Text);
             }
 
-            switch (cb_working_type.SelectedItem)
-            {
-                case "Ülőmunka/Tanuló": working = (Convert.ToInt32(tb_working.Text) * 1.1) * bmrPerHour; hour -= Convert.ToInt32(tb_working.Text); break;
-                case "Átlagos aktivitású munka": working = (Convert.ToInt32(tb_working.Text) * 1.3) * bmrPerHour; hour -= Convert.ToInt32(tb_working.Text); break;
-                case "Könnyű fizikai munka": working = (Convert.ToInt32(tb_working.Text) * 1.5) * bmrPerHour; hour -= Convert.ToInt32(tb_working.Text); break;
-                case "Nehéz fizikai munka": working = (Convert.ToInt32(tb_working.Text) * 1.7) * bmrPerHour; hour -= Convert.ToInt32(tb_working.Text); break;
-            }
+            #region További beállítások menü kalkuláció
 
             if (menu_stackP.Visibility == Visibility.Visible)
             {
+                switch (cb_working_type.SelectionBoxItem)
+                {
+                    case "Ülőmunka/Tanuló": working = (Convert.ToInt32(tb_working.Text) * 1.2) * bmrPerHour; hour -= Convert.ToInt32(tb_working.Text); break;
+                    case "Átlagos aktivitású munka": working = (Convert.ToInt32(tb_working.Text) * 1.375) * bmrPerHour; hour -= Convert.ToInt32(tb_working.Text); break;
+                    case "Könnyű fizikai munka": working = (Convert.ToInt32(tb_working.Text) * 1.55) * bmrPerHour; hour -= Convert.ToInt32(tb_working.Text); break;
+                    case "Nehéz fizikai munka": working = (Convert.ToInt32(tb_working.Text) * 1.75) * bmrPerHour; hour -= Convert.ToInt32(tb_working.Text); break;
+                }
+
+
                 var lekerdez = _contex.SportsData_DB.Where(x => x.sportName == lb1_sport.Content || x.sportName == lb2_sport.Content || x.sportName == lb3_sport.Content || x.sportName == lb4_sport.Content || x.sportName == lb5_sport.Content).ToList();
 
-
-                int i = 0;
-                foreach (var item in lekerdez)
+                if(lekerdez.Count > 0)
                 {
-                    sportKcal += Math.Round((Convert.ToDouble(item.sportKcal) * Convert.ToInt32(sport_Minutes[i])) * weight, 2);
-                    SportMinute += Convert.ToInt32(sport_Minutes[i]) * 0.01;
-                    i++;
+                    int i = 0;
+                    foreach (var item in lekerdez)
+                    {
+                        sportKcal += Math.Round((Convert.ToDouble(item.sportKcal) * Convert.ToInt32(sport_Minutes[i])) * weight, 2);
+                        SportMinute += Convert.ToInt32(sport_Minutes[i]) * 0.01;
+                        i++;
+
+                    }
+                    hour -= SportMinute;
 
                 }
-                hour -= SportMinute;
+                
             }
+            #endregion
 
             sum_AllValues = Convert.ToInt32((working + sleep + sportKcal) + (hour * bmrPerHour));
-            mealsPerValues[0] = Convert.ToInt32(sum_AllValues*0.3);
+
+            if(cb_working_type.SelectionBoxItem.ToString() == "Nem végzek")
+            {
+                sum_AllValues = Convert.ToInt32(sum_AllValues * 1.2);
+            }
+
+            switch (cb_purpose.SelectionBoxItem)
+            {
+                case "Szintentartás": break;
+                case "Fogyás": sum_AllValues = sum_AllValues - 250; break;
+                case "Tömegnövelés": sum_AllValues = sum_AllValues + 500; break;
+            }
+            mealsPerValues[0] = Convert.ToInt32(sum_AllValues * 0.3);
             mealsPerValues[1] = Convert.ToInt32(sum_AllValues * 0.4);
             mealsPerValues[2] = Convert.ToInt32(sum_AllValues * 0.25);
             #endregion
         }
         #endregion
 
+        
     }
 }

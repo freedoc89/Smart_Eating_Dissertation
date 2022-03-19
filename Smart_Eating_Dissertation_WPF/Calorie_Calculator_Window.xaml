@@ -50,14 +50,6 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-
             </Grid.RowDefinitions>
             <!--#endregion-->
 
@@ -78,7 +70,7 @@
 
             <!--#region Neme blokk-->
             <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="14" FontFamily="Britannic Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-3" Content="Nem:" FontSize="14" />
-            <ComboBox x:Name="cb_gender" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" HorizontalAlignment="Center" Width="75" FontFamily="Dubai Medium" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand">
+            <ComboBox x:Name="cb_gender" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,10" HorizontalAlignment="Center" Width="75" FontFamily="Dubai Medium" Height="20" VerticalAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand">
                 <ComboBoxItem IsSelected="True" VerticalAlignment="Center" Content="Férfi" Cursor="Hand"/>
                 <ComboBoxItem VerticalAlignment="Center" Content="Nő" Cursor="Hand"/>
             </ComboBox>
@@ -87,46 +79,35 @@
 
             <!--#region Kor blokk-->
             <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="14" FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-3" HorizontalAlignment="Center" Content="Kor:" FontSize="14" />
-            <TextBox x:Name="tb_age" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" LostFocus="tb_age_LostFocus"/>
+            <TextBox x:Name="tb_age" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,10" Width="50" HorizontalAlignment="Center" LostFocus="tb_age_LostFocus"/>
             <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Bottom" Background="#FFB1AAAA"/>
             <!--#endregion-->
 
             <!--#region Magasság blokk-->
             <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="14" FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-4" HorizontalAlignment="Center" Content="Magasság (cm):" FontSize="14" />
-            <TextBox x:Name="tb_height" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" LostFocus="tb_height_LostFocus"/>
+            <TextBox x:Name="tb_height" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,10" Width="50" HorizontalAlignment="Center" LostFocus="tb_height_LostFocus"/>
             <StackPanel Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Bottom" Background="#FFB1AAAA"/>
             <!--#endregion-->
 
             <!--#region Tömeg blokk-->
             <Label Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="14" FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-3" HorizontalAlignment="Center" Content="Tömeg (kg):" FontSize="14" />
-            <TextBox x:Name="tb_weight" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" LostFocus="tb_weight_LostFocus"/>
+            <TextBox x:Name="tb_weight" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,10" Width="50" HorizontalAlignment="Center" LostFocus="tb_weight_LostFocus"/>
             <StackPanel Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Bottom" Background="#FFB1AAAA"/>
             <!--#endregion-->
 
-            <!--#region Testzsír blokk-->
-            <Label Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="14" FontFamily="Britannic Bold" VerticalAlignment="Center" Margin="0,0,0,-3" HorizontalAlignment="Center" Content="Testzsír (%, opcionális):" FontSize="14" />
-            <TextBox x:Name="tb_fat" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" Width="50" HorizontalAlignment="Center" LostFocus="tb_fat_LostFocus"/>
-
-            <!--Testzsír magyarázat-->
-            <TextBlock Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="14" FontFamily="Bahnschrift SemiLight Condensed" VerticalAlignment="Center" Margin="0,-23,0,5" TextWrapping="Wrap" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" ><Run Text="A program meghatározza a megadott adataid alapján, ha üresen hagyod."/></TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="14" FontFamily="Bahnschrift SemiLight Condensed" VerticalAlignment="Center" Margin="0,0,0,5" TextWrapping="Wrap" FontSize="11" HorizontalAlignment="Center"><Run Text="Az átlagosnál jóval fejlettebb izomzattal rendelkezőknek viszont"/></TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="14" FontFamily="Bahnschrift SemiLight Condensed" VerticalAlignment="Center" Margin="0,25,0,5" TextWrapping="Wrap" FontSize="11" HorizontalAlignment="Center"><Run Text="mindenképp érdemes kitöltenie a testzsírszázalékot."/></TextBlock>
-            <StackPanel Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Bottom" Background="#FFB1AAAA"/>
-            <!--#endregion-->
-
             <!--#region Cél blokk-->
-            <Label Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="14" FontFamily="Britannic Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-3" Content="Cél:" />
-            <ComboBox x:Name="cb_purpose" Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,5" HorizontalAlignment="Center" FontFamily="Dubai Medium" Height="20" VerticalAlignment="Top" VerticalContentAlignment="Center" Cursor="Hand">
+            <Label Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="14" FontFamily="Britannic Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-3" Content="Cél:" />
+            <ComboBox x:Name="cb_purpose" Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="14" Background="White" Margin="0,5,0,10" HorizontalAlignment="Center" FontFamily="Dubai Medium" Height="20" VerticalAlignment="Top" VerticalContentAlignment="Center" Cursor="Hand">
                 <ComboBoxItem IsSelected="True" VerticalAlignment="Center" Content="Szintentartás" Cursor="Hand"/>
                 <ComboBoxItem VerticalAlignment="Center" Content="Fogyás" Cursor="Hand"/>
                 <ComboBoxItem VerticalAlignment="Center" Content="Tömegnövelés" Cursor="Hand"/>
             </ComboBox>
-            <StackPanel Grid.Column="0" Grid.Row="14" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Top" Background="#FFB1AAAA" Margin="0,30,0,0"/>
+            <StackPanel Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="14" Height="2px" VerticalAlignment="Top" Background="#FFB1AAAA" Margin="0,30,0,0"/>
             <!--#endregion-->
 
             <!--#region Lenyíló Menü-->
 
-            <StackPanel Grid.Column="0" Grid.Row="15" Grid.ColumnSpan="14" Grid.RowSpan="4" Margin="0,0,0,0" HorizontalAlignment="Stretch" Visibility="Visible">
+            <StackPanel Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="14" Grid.RowSpan="4" Margin="0,0,0,0" HorizontalAlignment="Stretch" Visibility="Visible">
                 <Grid Width="320">
                     <ToggleButton x:Name="tg_btn_plus_menu" Cursor="Hand" Style="{StaticResource btn_plus_menu}" Height="35" Width="35" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Stretch" HorizontalAlignment="Left" Checked="tg_btn_plus_menu_Checked" Unchecked="tg_btn_plus_menu_Unchecked" >
                         <ToggleButton.Background>
@@ -292,7 +273,7 @@
 
             <!--#endregion-->
             
-            <Button x:Name="btn_Calc" Style="{DynamicResource btn_calorieCalc}" Grid.Column="0" Grid.Row="21" Grid.ColumnSpan="14" Height="40px" VerticalAlignment="Center" Background="#FFC91B1B" Foreground="White" FontFamily="Britannic Bold" FontSize="14" BorderBrush="#FF939393" HorizontalAlignment="Center" Width="150" Margin="0,15,0,30" Content="Kalória Kalkulátor" Cursor="Hand" Click="btn_Calc_Click" IsEnabled="False"/>
+            <Button x:Name="btn_Calc" Style="{DynamicResource btn_calorieCalc}" Grid.Column="0" Grid.Row="16" Grid.ColumnSpan="14" Height="40px" VerticalAlignment="Center" Background="#FFC91B1B" Foreground="White" FontFamily="Britannic Bold" FontSize="14" BorderBrush="#FF939393" HorizontalAlignment="Center" Width="150" Margin="0,15,0,30" Content="Kalória Kalkulátor" Cursor="Hand" Click="btn_Calc_Click" IsEnabled="False"/>
 
 
         </Grid>

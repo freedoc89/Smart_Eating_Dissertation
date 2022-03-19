@@ -277,12 +277,16 @@ namespace Smart_Eating_Dissertation_WPF
             Calorie_Calculator_Window calorie_Calculator_Window = new Calorie_Calculator_Window();
             calorie_Calculator_Window.ShowDialog();
 
-            calorie_Calculator_Window.Calc_Kcal();
-            lb_bmr_value.Content = calorie_Calculator_Window.BMR_Value.ToString()+"Kcal";
-            lb_sumValues.Content = calorie_Calculator_Window.sum_AllValues.ToString()+"Kcal";
-            lb_breakfastValue.Content = calorie_Calculator_Window.mealsPerValues[0].ToString() + "Kcal";
-            lb_lunchValue.Content = calorie_Calculator_Window.mealsPerValues[1].ToString() + "Kcal";
-            lb_dinnerValue.Content = calorie_Calculator_Window.mealsPerValues[2].ToString() + "Kcal";
+            if (calorie_Calculator_Window.btn_Calc.IsEnabled)
+            {
+                calorie_Calculator_Window.Calc_Kcal();
+                lb_bmr_value.Content = calorie_Calculator_Window.BMR_Value.ToString() + "Kcal";
+                lb_sumValues.Content = calorie_Calculator_Window.sum_AllValues.ToString() + "Kcal";
+                lb_breakfastValue.Content = calorie_Calculator_Window.mealsPerValues[0].ToString() + "Kcal";
+                lb_lunchValue.Content = calorie_Calculator_Window.mealsPerValues[1].ToString() + "Kcal";
+                lb_dinnerValue.Content = calorie_Calculator_Window.mealsPerValues[2].ToString() + "Kcal";
+            }
+            
         }
         #endregion
 
