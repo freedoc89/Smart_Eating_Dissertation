@@ -1,8 +1,155 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Étkezz okosan";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid">
+    <div id="days" class="container-fluid" style="background-color: burlywood">
+        
+        @switch (DateTime.Now.DayOfWeek)
+        {
+            case DayOfWeek.Monday:
+                <label style="color: white"  id="lb_mond">Hétfő</label>   
+                <label  id="lb_tues">Kedd</label>
+                <label  id="lb_wednes">Szerda</label>
+                <label  id="lb_thrus">Csütörtök</label>
+                <label  id="lb_fri">Péntek</label>
+                <label  id="lb_sat">Szombat</label>
+                <label  id="lb_sun">Vasárnap</label>
+                break;
+            case DayOfWeek.Tuesday:
+                <label  id="lb_mond">Hétfő</label>   
+                <label style="color: white" id="lb_tues">Kedd</label>
+                <label  id="lb_wednes">Szerda</label>
+                <label  id="lb_thrus">Csütörtök</label>
+                <label  id="lb_fri">Péntek</label>
+                <label  id="lb_sat">Szombat</label>
+                <label  id="lb_sun">Vasárnap</label>
+                break;
+            case DayOfWeek.Wednesday:
+                <label  id="lb_mond">Hétfő</label>   
+                <label  id="lb_tues">Kedd</label>
+                <label style="color: white" id="lb_wednes">Szerda</label>
+                <label  id="lb_thrus">Csütörtök</label>
+                <label  id="lb_fri">Péntek</label>
+                <label  id="lb_sat">Szombat</label>
+                <label  id="lb_sun">Vasárnap</label>
+                break;
+            case DayOfWeek.Thursday:
+                <label  id="lb_mond">Hétfő</label>   
+                <label  id="lb_tues">Kedd</label>
+                <label  id="lb_wednes">Szerda</label>
+                <label style="color: white" id="lb_thrus">Csütörtök</label>
+                <label  id="lb_fri">Péntek</label>
+                <label  id="lb_sat">Szombat</label>
+                <label  id="lb_sun">Vasárnap</label>
+                break;
+            case DayOfWeek.Friday:
+                <label  id="lb_mond">Hétfő</label>   
+                <label  id="lb_tues">Kedd</label>
+                <label  id="lb_wednes">Szerda</label>
+                <label  id="lb_thrus">Csütörtök</label>
+                <label style="color: white" id="lb_fri">Péntek</label>
+                <label  id="lb_sat">Szombat</label>
+                <label  id="lb_sun">Vasárnap</label>
+                break;
+            case DayOfWeek.Saturday:
+                <label  id="lb_mond">Hétfő</label>   
+                <label  id="lb_tues">Kedd</label>
+                <label  id="lb_wednes">Szerda</label>
+                <label  id="lb_thrus">Csütörtök</label>
+                <label  id="lb_fri">Péntek</label>
+                <label style="color: white" id="lb_sat">Szombat</label>
+                <label  id="lb_sun">Vasárnap</label>
+                break;
+            case DayOfWeek.Sunday:
+                <label  id="lb_mond">Hétfő</label>   
+                <label  id="lb_tues">Kedd</label>
+                <label  id="lb_wednes">Szerda</label>
+                <label  id="lb_thrus">Csütörtök</label>
+                <label  id="lb_fri">Péntek</label>
+                <label  id="lb_sat">Szombat</label>
+                <label style="color: white" id="lb_sun">Vasárnap</label>
+                break;
+        }
+    </div>
+</div>
+
+<div id="randmeals_btn_container" class="container-fluid">
+    <div id="randmeals_row" style="width:100%" class="row container-fluid text-center">
+        <div class="col-sm-3">
+            <a asp-controller="MealsButtons" asp-action="rand_breakfast"><button class="btn btn-success mt-4 mb-4">Új reggeli</button></a>
+        </div>
+        <div class="col-sm-3">
+            <a asp-controller="MealsButtons" asp-action="rand_soup"><button class="btn btn-success mt-4 mb-4">Új leves</button></a>
+        </div>
+        <div class="col-sm-3">
+            <a asp-controller="MealsButtons" asp-action="rand_maincourse"><button class="btn btn-success mt-4 mb-4">Új főétel</button></a>
+        </div>
+        <div class="col-sm-3">
+            <a asp-controller="MealsButtons" asp-action="rand_dinner"><button class="btn btn-success mt-4 mb-4">Új vacsora</button></a>
+        </div>
+    </div>
+</div>
+<div style="margin: 10px 10px 10px 10px">
+    <table class="table-responsive">
+        <tr>
+            <td id="td2" style="color:red" colspan="6"> Figyelem! Néhány étel nem éri el a 100g súlyt ezért lehet hogy megtévesztő az érték!</td>
+
+        </tr>
+        <tr>
+            <td style="text-align:left" colspan="2">Ételek random</td>
+            <td id="tap" colspan="4">Tápértéktartalom: /100g</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="Reggeli">Reggeli:</td>
+            <td id="kozep" style="color:red">Fehérje</td>
+            <td id="kozep" style="color:red">Zsír</td>
+            <td id="kozep" style="color:red">Szénhidrát</td>
+            <td id="kozep" style="color:red">Kalória</td>
+        </tr>
+        <tr>
+            <td colspan="1" style="width:100px"></td>
+            <td>@TempData["breakfast"]</td>
+            <td  id="protein" style="text-align:center" colspan="1">@TempData["protein"]</td>
+            <td  id="fat" style="text-align:center" colspan="1">@TempData["fat"]</td>
+            <td  id="carbohydrate" style="text-align:center" colspan="1">@TempData["carbohydrate"]</td>
+            <td  id="kcal" style="text-align:center" colspan="1">@TempData["kcal"]</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="Ebed"> Ebéd: </td>
+            <td style="text-align:center" colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="1" style="width:100px"></td>
+            <td id="leves" colspan="1">.........</td>
+            <td style="text-align:center" colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="1" style="width:100px"></td>
+            <td id="foetel" colspan="1">.........</td>
+            <td style="text-align:center" colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="Vacsora">Vacsora:</td>
+            <td style="text-align:center" colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="1" style="width:100px"></td>
+            <td id="vacsora" colspan="1">.........</td>
+            <td style="text-align:center" colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="ossz">Összesen</td>
+            <td id="kozep" colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="bmi">Kalória kalkuláció alapján napi max Kcal:</td>
+            <td id="kozep" colspan="4"> </td>
+        </tr>
+        <tr>
+            <td id="td2" style="text-align:left" colspan="76">Heti étrend</td>
+
+        </tr>
+
+    </table>
 </div>

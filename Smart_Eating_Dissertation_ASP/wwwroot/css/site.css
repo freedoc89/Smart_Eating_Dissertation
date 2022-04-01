@@ -1,18 +1,162 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+@media (min-width: 1200px) {
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: bisque;
+}
+
+img {
+    width: 100%;
+    height: 278px;
+    display: inline-flex;
+}
+
+#gomb {
+    margin: 10px 10px 10px 60px;
+    width: 120px;
+    color: black;
+    font-weight: bolder;
+}
+
+#hr {
+    width: 100%;
+    margin: 10px 10px 10px 100px;
+}
+
+#div {
+    background-color: burlywood;
+}
+
+#days label {
+    font-family: Segoe UI Black;
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#days{
+    text-align:center;
+}
+
+table {
+    width: 100%;
+    margin: auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+#td2 {
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#tap {
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+#kozep {
+    vertical-align: middle;
+    text-align: center;
+}
+
+td {
+    font-weight: bold;
+}
+
+#Reggeli {
+    text-align: left;
+    border-right: 1px solid red;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 0px;
+    width: 100px;
+    text-decoration: underline;
+    color: red;
+}
+
+#reggeli {
+    text-align: left;
+    border-right: 1px solid red;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid black;
+}
+
+
+#Ebed {
+    text-align: left;
+    border-right: 1px solid red;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 0px;
+    width: 100px;
+    text-decoration: underline;
+    color: red;
+}
+
+#leves {
+    text-align: left;
+    border-right: 1px solid red;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+}
+
+#foetel {
+    text-align: left;
+    border-right: 1px solid red;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid black;
+}
+
+#Vacsora {
+    border-top: 1px solid black;
+    border-right: 1px solid red;
+    text-align: left;
+    text-decoration: underline;
+    color: red;
+}
+
+#vacsora {
+    border-right: 1px solid red;
+    text-align: left;
+}
+
+#ossz {
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid red;
+    border-left: 2px solid black;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+    color: red;
+}
+
+#bmi {
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+    color: red;
 }

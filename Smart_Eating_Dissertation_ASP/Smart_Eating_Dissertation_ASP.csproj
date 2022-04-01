@@ -10,4 +10,14 @@
     <ProjectReference Include="..\Smart_Eating_Dissertation_Services\Smart_Eating_Dissertation_Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Assets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Assets\bg_szalagkep.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
