@@ -351,7 +351,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <!--#endregion-->
-            <Image Grid.Column="1" Grid.ColumnSpan="14" Style="{StaticResource bg_szalag}" VerticalAlignment="Center" StretchDirection="DownOnly" Height="200" HorizontalAlignment="Stretch" Source="/bg_szalagkep.jpg"/>
+            <Image Grid.Column="0" Grid.ColumnSpan="16" Style="{StaticResource bg_szalag}" VerticalAlignment="Center" StretchDirection="DownOnly" Height="200" HorizontalAlignment="Stretch" Source="/bg_szalagkep.jpg"/>
 
             <!--#region Exit gomb-->
             <Button x:Name="btn_exit" Cursor="Hand" Grid.Column="14" Grid.Row="0" Style="{StaticResource CloseAppStyle}" Height="50" Width="50" VerticalAlignment="Top" Margin="7,16,0,0" Click="btn_exit_Click" >
@@ -365,7 +365,7 @@
             <Button x:Name="btn_calorieCalc" Style="{DynamicResource btn_calorieCalc}" Grid.Column="12" Grid.Row="0" Height="40px" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Margin="0,0,15,25" Background="#FFC91B1B" Foreground="White" FontFamily="Britannic Bold" FontSize="14" BorderBrush="#FF939393" Click="btn_calorieCalc_Click" Cursor="Hand">Kalória Kalkulátor</Button>
 
             <!--#region Napok blokk-->
-            <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="14" Background="#B2B37A4C" Orientation="Horizontal" Height="43"/>
+            <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="16" Background="#B2B37A4C" Orientation="Horizontal" Height="43"/>
             <TextBlock x:Name="textB_monday" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="H" FontSize="36" FontFamily="Stencil" FontWeight="Bold" FontStyle="Italic" TextAlignment="Center" VerticalAlignment="Center" Height="43" Foreground="#FFBA3904" Margin="0,0,0,0" HorizontalAlignment="Stretch"/>
             <TextBlock x:Name="textB_tuesday" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2"  Text="K" FontSize="36" FontFamily="Stencil" FontWeight="Bold" FontStyle="Italic" TextAlignment="Center" VerticalAlignment="Center" Height="43" Foreground="#FFBA3904" HorizontalAlignment="Stretch"/>
             <TextBlock x:Name="textB_wednesday" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2"  Text="SZ" FontSize="36" FontFamily="Stencil" FontWeight="Bold" FontStyle="Italic" TextAlignment="Center" VerticalAlignment="Center" Height="43" Foreground="#FFBA3904" Margin="0,0,0,0"/>
