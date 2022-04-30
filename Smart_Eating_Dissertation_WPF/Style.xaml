@@ -1,7 +1,23 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Smart_Eating_Dissertation_WPF" >
-                    
+    
+   <!--#region Szalagkép style-->
+    <ImageBrush x:Key="bg_szalagkep"
+                    ImageSource="Assets\bg_szalagkep.jpg"
+                    Stretch="None" />
+    <Style x:Key="bg_szalag"
+           TargetType="{x:Type Image}">
+        <Setter Property="Height"
+                    Value="200" />
+        <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        <Setter Property="StretchDirection"
+                    Value="DownOnly" />
+        <Setter Property="HorizontalAlignment"
+                    Value="Stretch" />
+    </Style>
+    <!--#endregion-->
 
     <!--#region Bezárás gomb style-->
         <ImageBrush x:Key="close_app_def"
@@ -275,4 +291,5 @@
     </Style>
 
     <!--#endregion-->
+    
 </ResourceDictionary>

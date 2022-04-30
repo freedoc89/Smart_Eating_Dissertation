@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Étkezz Okosan App" MaxHeight="820" MaxWidth="945" ScrollViewer.CanContentScroll="True"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowState="Maximized"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowState="Normal"
         >
 
     <Window.Resources>
@@ -351,7 +351,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <!--#endregion-->
-            <Image Grid.Column="1" Grid.ColumnSpan="14" Source="c:\Users\Freedoc\source\repos\Smart_Eating_Dissertation\Smart_Eating_Dissertation_Services\Pics\bg_szalagkep.jpg" VerticalAlignment="Center" StretchDirection="DownOnly" Height="200" HorizontalAlignment="Stretch"/>
+            <Image Grid.Column="1" Grid.ColumnSpan="14" Style="{StaticResource bg_szalag}" VerticalAlignment="Center" StretchDirection="DownOnly" Height="200" HorizontalAlignment="Stretch" Source="/bg_szalagkep.jpg"/>
 
             <!--#region Exit gomb-->
             <Button x:Name="btn_exit" Cursor="Hand" Grid.Column="14" Grid.Row="0" Style="{StaticResource CloseAppStyle}" Height="50" Width="50" VerticalAlignment="Top" Margin="7,16,0,0" Click="btn_exit_Click" >
