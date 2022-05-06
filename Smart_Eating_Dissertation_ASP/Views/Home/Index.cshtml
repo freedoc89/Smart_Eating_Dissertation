@@ -1,155 +1,326 @@
-﻿@{
-    ViewData["Title"] = "Étkezz okosan";
-}
+﻿@using Smart_Eating_Dissertation_Services.Data
 
-<div class="container-fluid">
-    <div id="days" class="container-fluid" style="background-color: burlywood">
+@*Főoldal index*@
+
+    <title> Étkezz okosan </title>
+
+@*Kép beillesztés és Kalória kalkulátor "gomb"*@
+    <header>
+           <div class="container-fluid">
+                        <img class="img-responsive" src="./css/bg_szalagkep.jpg" alt="Étkezz okosan" title="Étkezz okosan"> 
+                    <div class="col-12" style="text-align:end; margin: 0px">
+                        <a asp-action="Index" asp-controller="Calorie" class="btn btn-danger"> Kalória kalkulátor </a>                        
+                    </div> 
+                    
+           </div>       
         
-        @switch (DateTime.Now.DayOfWeek)
+    </header>
+
+@*Napok jelölése*@
+    <div class="container-fluid">
+            <div id="days" class= "container-fluid">
+                     @switch (DateTime.Now.DayOfWeek)
+                        {
+                            case DayOfWeek.Monday:
+                                <label style="color: white">HÉTFŐ</label>
+                                <label >KEDD</label>
+                                <label >SZERDA</label>
+                                <label >CSÜTÖRTÖK</label>
+                                <label >PÉNTEK</label>
+                                <label >SZOMBAT</label>
+                                <label >VASÁRNAP</label>;
+                                break;
+                            case DayOfWeek.Tuesday:
+                                <label >HÉTFŐ</label>
+                                <label style="color: white">KEDD</label>
+                                <label >SZERDA</label>
+                                <label >CSÜTÖRTÖK</label>
+                                <label >PÉNTEK</label>
+                                <label >SZOMBAT</label>
+                                <label >VASÁRNAP</label>;
+                                break;
+                            case DayOfWeek.Wednesday:
+                                <label >HÉTFŐ</label>
+                                <label >KEDD</label>
+                                <label style="color: white">SZERDA</label>
+                                <label >CSÜTÖRTÖK</label>
+                                <label >PÉNTEK</label>
+                                <label >SZOMBAT</label>
+                                <label >VASÁRNAP</label>;
+                                break;
+                            case DayOfWeek.Thursday:
+                                <label >HÉTFŐ</label>
+                                <label >KEDD</label>
+                                <label >SZERDA</label>
+                                <label style="color: white">CSÜTÖRTÖK</label>
+                                <label >PÉNTEK</label>
+                                <label >SZOMBAT</label>
+                                <label >VASÁRNAP</label>;
+                                break;
+                            case DayOfWeek.Friday:
+                                <label >HÉTFŐ</label>
+                                <label >KEDD</label>
+                                <label >SZERDA</label>
+                                <label >CSÜTÖRTÖK</label>
+                                <label style="color: white">PÉNTEK</label>
+                                <label >SZOMBAT</label>
+                                <label >VASÁRNAP</label>;
+                                break;
+                            case DayOfWeek.Saturday:
+                                <label >HÉTFŐ</label>
+                                <label >KEDD</label>
+                                <label >SZERDA</label>
+                                <label >CSÜTÖRTÖK</label>
+                                <label >PÉNTEK</label>
+                                <label style="color: white">SZOMBAT</label>
+                                <label >VASÁRNAP</label>;
+                                break;
+                            case DayOfWeek.Sunday:
+                                <label >HÉTFŐ</label>
+                                <label >KEDD</label>
+                                <label >SZERDA</label>
+                                <label >CSÜTÖRTÖK</label>
+                                <label >PÉNTEK</label>
+                                <label >SZOMBAT</label>
+                                <label style="color: white">VASÁRNAP</label>;
+                                break;
+                        }
+                </div>
+        </div>
+   
+@*Étkezés gombok*@
+
+    <div style="width:100%" class="row">
+       
+            <div class="col-sm-3">
+                <a asp-controller="Home" asp-action="rand_breakfast" class="btn btn-warning mt-4 mb-4">Új reggeli</a>
+            </div>
+            <div class="col-sm-3">
+                <a asp-controller="Home" asp-action="rand_soup" class="btn btn-success mt-4 mb-4">Új leves</></a>
+            </div>
+            <div class="col-sm-3">
+                <a asp-controller="Home" asp-action="rand_maincourse" class="btn btn-danger mt-4 mb-4">Új főétel</></a>
+            </div>
+            <div class="col-sm-3">
+                <a asp-controller="Home" asp-action="rand_dinner" class="btn btn-info mt-4 mb-4">Új vacsora</></a>
+            </div>
+        
+    </div>
+
+@*Táblázat*@
+ <div class="container-fluid"> 
+    <table class="table-responsive">   
+
+   @*Táblázat 1. sora*@
+    <tr>
+        <td id="td2" style="color:red"  colspan="12"> Figyelem! Néhány étel nem éri el a 100g súlyt ezért lehet hogy megtévesztő az érték!</td>
+                
+    </tr>
+
+   @*Táblázat 2. sora*@
+    <tr>
+        <td style="text-align:left" colspan="8">Ételek random</td>
+        <td id="tap" colspan="4">Tápértéktartalom: /100g</td>                
+    </tr>
+
+   @*Táblázat 3. sora*@
+    <tr>
+        <td colspan="8" id="Reggeli">Reggeli:</td> 
+        <td col="1" id="szel" style="color:red">Fehérje</td>
+        <td col="1" id="szel" style="color:red">Zsír</td>
+        <td col="1" id="szel" style="color:red">Szénhidrát</td>
+        <td col="1" id="szel" style="color:red">Kalória</td>             
+    </tr>
+
+   @*Táblázat 4. sora (REGGELI SOR)*@
+    <tr>
+            <td colspan="4"> </td>
+            @if (@TempData["breakfast"] == null)
+            {
+                ApplicationDbContext _context = new ApplicationDbContext();
+                Random rnd = new Random();
+                int count = _context.breakfast_EatingDatas_DB.Count();
+                int index = rnd.Next(1, count+1);
+                var breakfast = _context.breakfast_EatingDatas_DB.Where(x => x.Id == index);
+                if (breakfast.Count() > 0)
+                {
+                    foreach (var item in breakfast)
+                    {
+                        TempData["breakfast"] = item.Name_of_food.ToString();
+                        TempData["breakfast_protein"] = item.Protein_weight.ToString() + "g";
+                        TempData["breakfast_fat"] = item.Fat_weight.ToString() + "g";
+                        TempData["breakfast_carbohydrate"] = item.Carbohydrate_weight.ToString() + "g";
+                        TempData["breakfast_kcal"] = item.Calorie_kcal.ToString() + "Kcal";
+                    }
+                }
+                else
+                {
+                    <td colspan="4" id="reggeli">A reggelik adatbázisa nem elérhető!</td>
+                    <td id="szel" col="1">-</td>
+                    <td id="szel" col="1">-</td>
+                    <td id="szel" col="1">-</td>
+                    <td id="szel" col="1">-</td>
+                }
+            }
+            else
+            {
+                <td colspan="4" id="reggeli">@TempData["breakfast"]</td>
+                <td id="szel" col="1">@TempData["breakfast_protein"]</td>
+                <td id="szel" col="1">@TempData["breakfast_fat"]</td>
+                <td id="szel" col="1">@TempData["breakfast_carbohydrate"]</td>
+                <td id="szel" col="1">@TempData["breakfast_kcal"]</td>
+            }
+    </tr>
+
+   @*Táblázat 5. sora*@
+    <tr>
+        <td colspan="8" id="Ebed"> Ebéd: </td>
+        <td style="text-align:center; border-top: 1px solid black" colspan="4" ></td>
+    </tr>
+
+   @*Táblázat 6. sora (LEVES SOR)*@
+    <tr>
+        <td colspan="4"></td>
+        @if (@TempData["soup"]==null)
         {
-            case DayOfWeek.Monday:
-                <label style="color: white"  id="lb_mond">Hétfő</label>   
-                <label  id="lb_tues">Kedd</label>
-                <label  id="lb_wednes">Szerda</label>
-                <label  id="lb_thrus">Csütörtök</label>
-                <label  id="lb_fri">Péntek</label>
-                <label  id="lb_sat">Szombat</label>
-                <label  id="lb_sun">Vasárnap</label>
-                break;
-            case DayOfWeek.Tuesday:
-                <label  id="lb_mond">Hétfő</label>   
-                <label style="color: white" id="lb_tues">Kedd</label>
-                <label  id="lb_wednes">Szerda</label>
-                <label  id="lb_thrus">Csütörtök</label>
-                <label  id="lb_fri">Péntek</label>
-                <label  id="lb_sat">Szombat</label>
-                <label  id="lb_sun">Vasárnap</label>
-                break;
-            case DayOfWeek.Wednesday:
-                <label  id="lb_mond">Hétfő</label>   
-                <label  id="lb_tues">Kedd</label>
-                <label style="color: white" id="lb_wednes">Szerda</label>
-                <label  id="lb_thrus">Csütörtök</label>
-                <label  id="lb_fri">Péntek</label>
-                <label  id="lb_sat">Szombat</label>
-                <label  id="lb_sun">Vasárnap</label>
-                break;
-            case DayOfWeek.Thursday:
-                <label  id="lb_mond">Hétfő</label>   
-                <label  id="lb_tues">Kedd</label>
-                <label  id="lb_wednes">Szerda</label>
-                <label style="color: white" id="lb_thrus">Csütörtök</label>
-                <label  id="lb_fri">Péntek</label>
-                <label  id="lb_sat">Szombat</label>
-                <label  id="lb_sun">Vasárnap</label>
-                break;
-            case DayOfWeek.Friday:
-                <label  id="lb_mond">Hétfő</label>   
-                <label  id="lb_tues">Kedd</label>
-                <label  id="lb_wednes">Szerda</label>
-                <label  id="lb_thrus">Csütörtök</label>
-                <label style="color: white" id="lb_fri">Péntek</label>
-                <label  id="lb_sat">Szombat</label>
-                <label  id="lb_sun">Vasárnap</label>
-                break;
-            case DayOfWeek.Saturday:
-                <label  id="lb_mond">Hétfő</label>   
-                <label  id="lb_tues">Kedd</label>
-                <label  id="lb_wednes">Szerda</label>
-                <label  id="lb_thrus">Csütörtök</label>
-                <label  id="lb_fri">Péntek</label>
-                <label style="color: white" id="lb_sat">Szombat</label>
-                <label  id="lb_sun">Vasárnap</label>
-                break;
-            case DayOfWeek.Sunday:
-                <label  id="lb_mond">Hétfő</label>   
-                <label  id="lb_tues">Kedd</label>
-                <label  id="lb_wednes">Szerda</label>
-                <label  id="lb_thrus">Csütörtök</label>
-                <label  id="lb_fri">Péntek</label>
-                <label  id="lb_sat">Szombat</label>
-                <label style="color: white" id="lb_sun">Vasárnap</label>
-                break;
+            Random rnd = new Random();
+            ApplicationDbContext _context = new ApplicationDbContext();
+            int count = _context.lunch_Soup_EatingDatas_DB.Count();
+            int index = rnd.Next(1, count+1);
+            var soup = _context.lunch_Soup_EatingDatas_DB.Where(x => x.Id == index);
+            if (soup.Count() > 0)
+            {
+                foreach (var item in soup)
+                {
+                    TempData["soup"] = item.Name_of_food.ToString();
+                    TempData["soup_protein"] = item.Protein_weight.ToString() + "g";
+                    TempData["soup_fat"] = item.Fat_weight.ToString() + "g";
+                    TempData["soup_carbohydrate"] = item.Carbohydrate_weight.ToString() + "g";
+                    TempData["soup_kcal"] = item.Calorie_kcal.ToString() + "Kcal";
+                }
+            }
+            else
+            {
+                <td colspan="4" id="leves" style="color:red">A levesek adatbázisa nem elérhető!</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+            }                    
         }
-    </div>
-</div>
+        else
+        {
+            <td id="leves" colspan="4"> Leves: @TempData["soup"]</td>
+            <td id="szel" col="1">@TempData["soup_protein"]</td>
+            <td id="szel" col="1">@TempData["soup_fat"]</td>
+            <td id="szel" col="1">@TempData["soup_carbohydrate"]</td>
+            <td id="szel" col="1">@TempData["soup_kcal"]</td>
+        }
+    </tr>
 
-<div id="randmeals_btn_container" class="container-fluid">
-    <div id="randmeals_row" style="width:100%" class="row container-fluid text-center">
-        <div class="col-sm-3">
-            <a asp-controller="MealsButtons" asp-action="rand_breakfast"><button class="btn btn-success mt-4 mb-4">Új reggeli</button></a>
-        </div>
-        <div class="col-sm-3">
-            <a asp-controller="MealsButtons" asp-action="rand_soup"><button class="btn btn-success mt-4 mb-4">Új leves</button></a>
-        </div>
-        <div class="col-sm-3">
-            <a asp-controller="MealsButtons" asp-action="rand_maincourse"><button class="btn btn-success mt-4 mb-4">Új főétel</button></a>
-        </div>
-        <div class="col-sm-3">
-            <a asp-controller="MealsButtons" asp-action="rand_dinner"><button class="btn btn-success mt-4 mb-4">Új vacsora</button></a>
-        </div>
-    </div>
-</div>
-<div style="margin: 10px 10px 10px 10px">
-    <table class="table-responsive">
-        <tr>
-            <td id="td2" style="color:red" colspan="6"> Figyelem! Néhány étel nem éri el a 100g súlyt ezért lehet hogy megtévesztő az érték!</td>
+   @*Táblázat 7. sora (FŐÉTEL SOR)*@
+    <tr>
+        <td colspan="4"></td>
+        @if (@TempData["main_course"]==null)
+        {
+            Random rnd = new Random();
+            ApplicationDbContext _context = new ApplicationDbContext();
+            int count = _context.lunch_Main_Course_EatingDatas_DB.Count();
+            int index = rnd.Next(1, count+1);
+            var main_course = _context.lunch_Main_Course_EatingDatas_DB.Where(x => x.Id == index);
+            if (main_course.Count() > 0)
+            {
+                foreach (var item in main_course)
+                {
+                    TempData["main_course"] = item.Name_of_food.ToString();
+                    TempData["main_course_protein"] = item.Protein_weight.ToString() + "g";
+                    TempData["main_course_fat"] = item.Fat_weight.ToString() + "g";
+                    TempData["main_course_carbohydrate"] = item.Carbohydrate_weight.ToString() + "g";
+                    TempData["main_course_kcal"] = item.Calorie_kcal.ToString() + "Kcal";
+                }
+            }
+            else
+            {
+                <td colspan="4" id="foetel" style="color:red">A főételek adatbázisa nem elérhető!</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+            }
+        }
+        else
+        {
+            <td colspan="4" id="foetel"> Főétel: @TempData["main_course"]</td>
+            <td id="szel" col="1">@TempData["main_course_protein"]</td>
+            <td id="szel" col="1">@TempData["main_course_fat"]</td>
+            <td id="szel" col="1">@TempData["main_course_carbohydrate"]</td>
+            <td id="szel" col="1">@TempData["main_course_kcal"]</td>
+        }
 
-        </tr>
-        <tr>
-            <td style="text-align:left" colspan="2">Ételek random</td>
-            <td id="tap" colspan="4">Tápértéktartalom: /100g</td>
-        </tr>
-        <tr>
-            <td colspan="2" id="Reggeli">Reggeli:</td>
-            <td id="kozep" style="color:red">Fehérje</td>
-            <td id="kozep" style="color:red">Zsír</td>
-            <td id="kozep" style="color:red">Szénhidrát</td>
-            <td id="kozep" style="color:red">Kalória</td>
-        </tr>
-        <tr>
-            <td colspan="1" style="width:100px"></td>
-            <td>@TempData["breakfast"]</td>
-            <td  id="protein" style="text-align:center" colspan="1">@TempData["protein"]</td>
-            <td  id="fat" style="text-align:center" colspan="1">@TempData["fat"]</td>
-            <td  id="carbohydrate" style="text-align:center" colspan="1">@TempData["carbohydrate"]</td>
-            <td  id="kcal" style="text-align:center" colspan="1">@TempData["kcal"]</td>
-        </tr>
-        <tr>
-            <td colspan="2" id="Ebed"> Ebéd: </td>
-            <td style="text-align:center" colspan="4"></td>
-        </tr>
-        <tr>
-            <td colspan="1" style="width:100px"></td>
-            <td id="leves" colspan="1">.........</td>
-            <td style="text-align:center" colspan="4"></td>
-        </tr>
-        <tr>
-            <td colspan="1" style="width:100px"></td>
-            <td id="foetel" colspan="1">.........</td>
-            <td style="text-align:center" colspan="4"></td>
-        </tr>
-        <tr>
-            <td colspan="2" id="Vacsora">Vacsora:</td>
-            <td style="text-align:center" colspan="4"></td>
-        </tr>
-        <tr>
-            <td colspan="1" style="width:100px"></td>
-            <td id="vacsora" colspan="1">.........</td>
-            <td style="text-align:center" colspan="4"></td>
-        </tr>
-        <tr>
-            <td colspan="2" id="ossz">Összesen</td>
-            <td id="kozep" colspan="4"></td>
-        </tr>
-        <tr>
-            <td colspan="2" id="bmi">Kalória kalkuláció alapján napi max Kcal:</td>
-            <td id="kozep" colspan="4"> </td>
-        </tr>
-        <tr>
-            <td id="td2" style="text-align:left" colspan="76">Heti étrend</td>
+    </tr>
 
+   @*Táblázat 8. sora*@
+    <tr>
+        <td colspan="8" id="Vacsora">Vacsora:</td>
+        <td style="text-align:center; border-top: 1px solid black" colspan="4"></td>
+    </tr>
+
+   @*Táblázat 9. sora (VACSORA SOR)*@
+        <tr>
+        <td colspan="4"></td>
+        @if (@TempData["dinner"]==null)
+        {
+            Random rnd = new Random();
+            ApplicationDbContext _context = new ApplicationDbContext();
+            int count = _context.dinner_EatingDatas_DB.Count();
+            int index = rnd.Next(1, count+1);
+            var dinner = _context.dinner_EatingDatas_DB.Where(x => x.Id == index);
+            if (dinner.Count() > 0)
+            {
+                foreach (var item in dinner)
+                {
+                    TempData["dinner"] = item.Name_of_food.ToString();
+                    TempData["dinner_protein"] = item.Protein_weight.ToString() + "g";
+                    TempData["dinner_fat"] = item.Fat_weight.ToString() + "g";
+                    TempData["dinner_carbohydrate"] = item.Carbohydrate_weight.ToString() + "g";
+                    TempData["dinner_kcal"] = item.Calorie_kcal.ToString() + "Kcal";
+                }
+            }
+            else
+            {
+                <td colspan="4" id="vacsora" style="color:red">A vacsorák adatbázis nem elérhető!</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+                <td id="szel" col="1">-</td>
+            }
+        }
+        else
+        {
+            <td id="vacsora" colspan="4">@TempData["dinner"]</td>
+            <td id="szel" col="1">@TempData["dinner_protein"]</td>
+            <td id="szel" col="1">@TempData["dinner_fat"]</td>
+            <td id="szel" col="1">@TempData["dinner_carbohydrate"]</td>
+            <td id="szel" col="1">@TempData["dinner_kcal"]</td>
+        }
         </tr>
 
-    </table>
-</div>
+   @*Táblázat 10. sora (ÖSSZESEN SOR)*@
+    <tr>
+        <td colspan="8" id="ossz">Összesen</td>
+        <td id="szel" style="border-bottom: 1px solid red; border-top: 1px solid red" col="1"> - </td>   
+        <td id="szel" style="border-bottom: 1px solid red; border-top: 1px solid red" col="1"> - </td>
+        <td id="szel" style="border-bottom: 1px solid red; border-top: 1px solid red" col="1"> - </td>
+        <td id="szel" style="border-bottom: 1px solid red; border-top: 1px solid red" col="1"> - </td>
+    </tr>
+                
+   @*Táblázat 11. sora (KALÓRIA SOR)*@
+    <tr>
+        <td colspan="8" id="bmr">Kalória kalkuláció alapján napi max Kcal:</td>
+            <td id="szel" colspan="4"> - </td>
+    </tr>
+            
+   </table>
+  </div> 
+
+ 
